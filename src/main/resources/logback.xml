@@ -1,0 +1,20 @@
+<configuration scan="true" scanPeriod="3 seconds" debug="false">  
+
+  
+<contextListener class="com.wangguofeng1923.examples.logging.LoggerStartupListener" /> 
+       <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">   
+    <!-- encoder 默认配置为PatternLayoutEncoder -->   
+    <encoder>   
+    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger  - %replace(%replace(%caller{1}){'Caller\+0	 at', ''}){'\r\n', ''} %msg%n</pattern>
+    </encoder>   
+  </appender>   
+<logger name="com.atomikos.datasource.xa" level="DEBUG"></logger>
+<logger name="org.apache.ignite.internal.processors.cache.transactions.IgniteTxManager" level="INFO"></logger>
+<logger name="org.apache.ignite.internal.processors.cache.distributed.near.GridNearTxLocal" level="INFO"></logger>
+<logger name="com.atomikos" level="DEBUG"></logger>
+
+ 
+  <root level="INFO">             
+    <appender-ref ref="STDOUT" />   
+  </root>     
+</configuration>

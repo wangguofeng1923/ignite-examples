@@ -50,6 +50,16 @@ public class Person implements Serializable{
 	  @QuerySqlField(index = true)
 	  private int age;
 	  
+	  private PersonKey personKey;
+	  
+	public PersonKey getPersonKey() {
+		return personKey;
+	}
+
+	public void setPersonKey(PersonKey personKey) {
+		this.personKey = personKey;
+	}
+
 	public int getAge() {
 		return age;
 	}

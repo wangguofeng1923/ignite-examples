@@ -19,11 +19,11 @@ import org.apache.ignite.plugin.security.SecurityCredentialsBasicProvider;
 import org.apache.ignite.plugin.security.SecurityCredentialsProvider;
 import org.apache.ignite.plugin.security.SecurityPermission;
 import org.apache.ignite.plugin.security.SecurityPermissionSet;
-import org.gridgain.grid.configuration.GridGainConfiguration;
-import org.gridgain.grid.security.Authenticator;
-import org.gridgain.grid.security.passcode.AuthenticationAclBasicProvider;
-import org.gridgain.grid.security.passcode.AuthenticationAclProvider;
-import org.gridgain.grid.security.passcode.PasscodeAuthenticator;
+//import org.gridgain.grid.configuration.GridGainConfiguration;
+//import org.gridgain.grid.security.Authenticator;
+//import org.gridgain.grid.security.passcode.AuthenticationAclBasicProvider;
+//import org.gridgain.grid.security.passcode.AuthenticationAclProvider;
+//import org.gridgain.grid.security.passcode.PasscodeAuthenticator;
 
 import com.wangguofeng1923.ignite.examples.security.plugin.MyPluginConfiguration;
 import com.wangguofeng1923.ignite.examples.security.plugin.WhiteListPluginConfiguration;
@@ -39,21 +39,21 @@ public class SecurityDemo2 {
 		igniteCfg.setGridLogger(gridLog);
 		igniteCfg.setDeploymentMode(DeploymentMode.CONTINUOUS);
 		
-	GridGainConfiguration gainConfiguration=new GridGainConfiguration();
+//	GridGainConfiguration gainConfiguration=new GridGainConfiguration();
 	
 	SecurityCredentials securityCredentials=new SecurityCredentials("userName","password");
 	SecurityCredentialsBasicProvider provider=new SecurityCredentialsBasicProvider(securityCredentials);
-	PasscodeAuthenticator authenticator=new PasscodeAuthenticator();
+//	PasscodeAuthenticator authenticator=new PasscodeAuthenticator();
 	
-	gainConfiguration.setSecurityCredentialsProvider(provider);
+//	gainConfiguration.setSecurityCredentialsProvider(provider);
 	
 	Map<SecurityCredentials, String> perms=new HashMap<>();
 	perms.put(securityCredentials, "{defaultAllow:false,{system:[ADMIN_VIEW, ADMIN_OPS, ADMIN_QUERY, ADMIN_CACHE]}}");
-	AuthenticationAclProvider  aclProvider=new AuthenticationAclBasicProvider(perms);
-	authenticator.setAclProvider(aclProvider);
-	gainConfiguration.setAuthenticator(authenticator);
+//	AuthenticationAclProvider  aclProvider=new AuthenticationAclBasicProvider(perms);
+//	authenticator.setAclProvider(aclProvider);
+//	gainConfiguration.setAuthenticator(authenticator);
 	
-	igniteCfg.setPluginConfigurations(gainConfiguration);
+//	igniteCfg.setPluginConfigurations(gainConfiguration);
 			Ignite ignite=Ignition.start(igniteCfg);
 
 			IgniteCluster cluster = ignite.cluster();

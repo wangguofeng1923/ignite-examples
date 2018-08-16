@@ -7,6 +7,8 @@ import org.apache.ignite.IgniteCheckedException;
 import org.apache.ignite.cluster.ClusterNode;
 import org.apache.ignite.internal.processors.security.GridSecurityProcessor;
 import org.apache.ignite.internal.processors.security.os.GridOsSecurityProcessor;
+import org.apache.ignite.plugin.CachePluginContext;
+import org.apache.ignite.plugin.CachePluginProvider;
 import org.apache.ignite.plugin.ExtensionRegistry;
 import org.apache.ignite.plugin.IgnitePlugin;
 import org.apache.ignite.plugin.PluginContext;
@@ -92,6 +94,12 @@ public class SecurityPluginProvider implements PluginProvider<SecurityPluginConf
 	public void validateNewNode(ClusterNode node) throws PluginValidationException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public CachePluginProvider createCacheProvider(CachePluginContext ctx) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

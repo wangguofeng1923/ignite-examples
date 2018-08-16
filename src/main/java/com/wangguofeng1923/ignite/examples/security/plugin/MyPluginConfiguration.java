@@ -12,11 +12,11 @@ public class MyPluginConfiguration  implements CachePluginConfiguration<String,S
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public CachePluginProvider<MyPluginConfiguration> createProvider(CachePluginContext ctx) {
-		// TODO Auto-generated method stub
-		return new MyPluginProvider();
-	}
+//	@Override
+//	public CachePluginProvider<MyPluginConfiguration> createProvider(CachePluginContext ctx) {
+//		// TODO Auto-generated method stub
+//		return new MyPluginProvider();
+//	}
    
 
 

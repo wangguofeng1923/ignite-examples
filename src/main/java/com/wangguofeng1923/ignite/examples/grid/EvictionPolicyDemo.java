@@ -12,7 +12,6 @@ import org.apache.ignite.Ignition;
 import org.apache.ignite.cache.eviction.EvictionPolicy;
 import org.apache.ignite.cache.eviction.fifo.FifoEvictionPolicy;
 import org.apache.ignite.cache.eviction.lru.LruEvictionPolicy;
-import org.apache.ignite.cache.eviction.random.RandomEvictionPolicy;
 import org.apache.ignite.cache.eviction.sorted.SortedEvictionPolicy;
 import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.configuration.IgniteConfiguration;
@@ -40,7 +39,7 @@ public class EvictionPolicyDemo {
 			cacheConfiguration.setReadThrough(true);
 			cacheConfiguration.setWriteThrough(true);
 			
-			cacheConfiguration.setOffHeapMaxMemory(-1);
+//			cacheConfiguration.setOffHeapMaxMemory(-1);
 //			cacheConfiguration.setEvictSynchronized(true);
 			LruEvictionPolicy<Long, Person>evictionPolicy=new LruEvictionPolicy<>();
 //			FifoEvictionPolicy<K, V>

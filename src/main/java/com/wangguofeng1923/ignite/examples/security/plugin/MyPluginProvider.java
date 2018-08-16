@@ -60,11 +60,18 @@ public class MyPluginProvider implements CachePluginProvider<MyPluginConfigurati
 	}
 
 	@Override
-	public void validateRemote(CacheConfiguration locCfg, MyPluginConfiguration locPluginCcfg,
-			CacheConfiguration rmtCfg, ClusterNode rmtNode) throws IgniteCheckedException {
-		System.out.println("validateRemote");
+	public void validateRemote(CacheConfiguration locCfg, CacheConfiguration rmtCfg, ClusterNode rmtNode)
+			throws IgniteCheckedException {
+		// TODO Auto-generated method stub
 		
 	}
+
+//	@Override
+//	public void validateRemote(CacheConfiguration locCfg, MyPluginConfiguration locPluginCcfg,
+//			CacheConfiguration rmtCfg, ClusterNode rmtNode) throws IgniteCheckedException {
+//		System.out.println("validateRemote");
+//		
+//	}
 
 
 

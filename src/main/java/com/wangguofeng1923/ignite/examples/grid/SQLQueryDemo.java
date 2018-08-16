@@ -9,9 +9,7 @@ import javax.cache.Cache.Entry;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
-import org.apache.ignite.cache.CacheMemoryMode;
 import org.apache.ignite.cache.affinity.AffinityKey;
-import org.apache.ignite.cache.eviction.random.RandomEvictionPolicy;
 import org.apache.ignite.cache.query.QueryCursor;
 import org.apache.ignite.cache.query.ScanQuery;
 import org.apache.ignite.cache.query.SqlFieldsQuery;
@@ -152,14 +150,14 @@ public class SQLQueryDemo {
 						CacheConfiguration<Object, Object> ccfg = new CacheConfiguration<>();
 
 						// Set unlimited off-heap memory for cache and enable off-heap indexes.
-						ccfg.setOffHeapMaxMemory(0); 
+//						ccfg.setOffHeapMaxMemory(0); 
 
 						// Cache entries will be placed on heap and can be evited to off-heap.
-						ccfg.setMemoryMode(CacheMemoryMode.ONHEAP_TIERED);
-						ccfg.setEvictionPolicy(new RandomEvictionPolicy(100_000));
+//						ccfg.setMemoryMode(CacheMemoryMode.ONHEAP_TIERED);
+//						ccfg.setEvictionPolicy(new RandomEvictionPolicy(100_000));
 
 						// Increase size of SQL on-heap row cache for off-heap indexes.
-						ccfg.setSqlOnheapRowCacheSize(100_000);
+//						ccfg.setSqlOnheapRowCacheSize(100_000);
 		}
 
 	}

@@ -19,11 +19,11 @@ import org.apache.ignite.plugin.security.SecurityCredentialsBasicProvider;
 import org.apache.ignite.plugin.security.SecurityCredentialsProvider;
 import org.apache.ignite.plugin.security.SecurityPermission;
 import org.apache.ignite.plugin.security.SecurityPermissionSet;
-import org.gridgain.grid.configuration.GridGainConfiguration;
-import org.gridgain.grid.security.Authenticator;
-import org.gridgain.grid.security.passcode.AuthenticationAclBasicProvider;
-import org.gridgain.grid.security.passcode.AuthenticationAclProvider;
-import org.gridgain.grid.security.passcode.PasscodeAuthenticator;
+//import org.gridgain.grid.configuration.GridGainConfiguration;
+//import org.gridgain.grid.security.Authenticator;
+//import org.gridgain.grid.security.passcode.AuthenticationAclBasicProvider;
+//import org.gridgain.grid.security.passcode.AuthenticationAclProvider;
+//import org.gridgain.grid.security.passcode.PasscodeAuthenticator;
 
 import com.wangguofeng1923.ignite.examples.security.plugin.MyPluginConfiguration;
 import com.wangguofeng1923.ignite.examples.security.plugin.WhiteListPluginConfiguration;
@@ -46,12 +46,12 @@ public class SecurityDemo {
 //		igniteCfg.setCacheConfiguration(cacheConfiguration);
 //		igniteCfg.setPluginConfigurations(new WhiteListPluginConfiguration());
 		
-	GridGainConfiguration gainConfiguration=new GridGainConfiguration();
+//	GridGainConfiguration gainConfiguration=new GridGainConfiguration();
 	//Create security credentials.
 	SecurityCredentials creds = new SecurityCredentials("username"+System.currentTimeMillis(), "password");
 	//Create basic security provider.
 	SecurityCredentialsBasicProvider provider = new SecurityCredentialsBasicProvider(creds);
-	gainConfiguration.setSecurityCredentialsProvider(provider);
+//	gainConfiguration.setSecurityCredentialsProvider(provider);
 	//final SecurityCredentials credentials=new SecurityCredentials("login", "password");
 	//AuthenticationAclProvider basicProvider=new MyAuthenticationAclProvider(credentials);
 	//PasscodeAuthenticator auth=new PasscodeAuthenticator();
@@ -59,7 +59,7 @@ public class SecurityDemo {
 	//gainConfiguration.setAuthenticator(auth);
 	//SecurityCredentialsProvider securityCredentialsProvider=new MySecurityCredentialsProvider(credentials);
 	//gainConfiguration.setSecurityCredentialsProvider(securityCredentialsProvider);
-	igniteCfg.setPluginConfigurations(gainConfiguration);
+//	igniteCfg.setPluginConfigurations(gainConfiguration);
 			Ignite ignite=Ignition.start(igniteCfg);
 
 			IgniteCluster cluster = ignite.cluster();

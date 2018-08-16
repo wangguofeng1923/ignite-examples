@@ -24,6 +24,9 @@ import org.apache.ignite.plugin.security.SecurityPermissionSet;
 import org.apache.ignite.plugin.security.SecuritySubject;
 import org.apache.ignite.plugin.security.SecuritySubjectType;
 import org.apache.ignite.spi.IgniteNodeValidationResult;
+import org.apache.ignite.spi.discovery.DiscoveryDataBag;
+import org.apache.ignite.spi.discovery.DiscoveryDataBag.GridDiscoveryData;
+import org.apache.ignite.spi.discovery.DiscoveryDataBag.JoiningNodeDiscoveryData;
 import org.apache.ignite.spi.discovery.DiscoverySpiNodeAuthenticator;
 
 public class WhiteListSecurityProcessor
@@ -31,102 +34,102 @@ public class WhiteListSecurityProcessor
                                      GridSecurityProcessor, 
                                      IgnitePlugin {
                  
-    //the hosts that will be allowed to join the cluster
-    private Set<String> whitelist = new HashSet<>();
- 
-//    private boolean isAddressOk(Collection<String> addresses) {
-//        //return true if the address is in the whitelist
-//    }
-    
-	@Override
-	public SecurityContext authenticateNode(ClusterNode node, SecurityCredentials cred) throws IgniteException {
-		new SecurityContext(){
-
-			@Override
-			public SecuritySubject subject() {
-				// TODO Auto-generated method stub
-				return new SecuritySubject(){
-
-					@Override
-					public UUID id() {
-						// TODO Auto-generated method stub
-						return null;
-					}
-
-					@Override
-					public SecuritySubjectType type() {
-						// TODO Auto-generated method stub
-						return null;
-					}
-
-					@Override
-					public Object login() {
-						// TODO Auto-generated method stub
-						return null;
-					}
-
-					@Override
-					public InetSocketAddress address() {
-						// TODO Auto-generated method stub
-						return null;
-					}
-
-					@Override
-					public SecurityPermissionSet permissions() {
-						
-						return new SecurityPermissionSet() {
-							
-							@Override
-							public Map<String, Collection<SecurityPermission>> taskPermissions() {
-								// TODO Auto-generated method stub
-								return null;
-							}
-							
-							@Override
-							public Collection<SecurityPermission> systemPermissions() {
-								// TODO Auto-generated method stub
-								return null;
-							}
-							
-							@Override
-							public boolean defaultAllowAll() {
-								// TODO Auto-generated method stub
-								return false;
-							}
-							
-							@Override
-							public Map<String, Collection<SecurityPermission>> cachePermissions() {
-								// TODO Auto-generated method stub
-								return null;
-							}
-						};
-					}};
-			}
-
-			@Override
-			public boolean taskOperationAllowed(String taskClsName, SecurityPermission perm) {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public boolean cacheOperationAllowed(String cacheName, SecurityPermission perm) {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public boolean systemOperationAllowed(SecurityPermission perm) {
-				// TODO Auto-generated method stub
-				return false;
-			}};
-		return null;
-	}
-	@Override
-	public IgniteNodeValidationResult validateNode(ClusterNode node) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//    //the hosts that will be allowed to join the cluster
+//    private Set<String> whitelist = new HashSet<>();
+// 
+////    private boolean isAddressOk(Collection<String> addresses) {
+////        //return true if the address is in the whitelist
+////    }
+//    
+//	@Override
+//	public SecurityContext authenticateNode(ClusterNode node, SecurityCredentials cred) throws IgniteException {
+//		new SecurityContext(){
+//
+//			@Override
+//			public SecuritySubject subject() {
+//				// TODO Auto-generated method stub
+//				return new SecuritySubject(){
+//
+//					@Override
+//					public UUID id() {
+//						// TODO Auto-generated method stub
+//						return null;
+//					}
+//
+//					@Override
+//					public SecuritySubjectType type() {
+//						// TODO Auto-generated method stub
+//						return null;
+//					}
+//
+//					@Override
+//					public Object login() {
+//						// TODO Auto-generated method stub
+//						return null;
+//					}
+//
+//					@Override
+//					public InetSocketAddress address() {
+//						// TODO Auto-generated method stub
+//						return null;
+//					}
+//
+//					@Override
+//					public SecurityPermissionSet permissions() {
+//						
+//						return new SecurityPermissionSet() {
+//							
+//							@Override
+//							public Map<String, Collection<SecurityPermission>> taskPermissions() {
+//								// TODO Auto-generated method stub
+//								return null;
+//							}
+//							
+//							@Override
+//							public Collection<SecurityPermission> systemPermissions() {
+//								// TODO Auto-generated method stub
+//								return null;
+//							}
+//							
+//							@Override
+//							public boolean defaultAllowAll() {
+//								// TODO Auto-generated method stub
+//								return false;
+//							}
+//							
+//							@Override
+//							public Map<String, Collection<SecurityPermission>> cachePermissions() {
+//								// TODO Auto-generated method stub
+//								return null;
+//							}
+//						};
+//					}};
+//			}
+//
+//			@Override
+//			public boolean taskOperationAllowed(String taskClsName, SecurityPermission perm) {
+//				// TODO Auto-generated method stub
+//				return false;
+//			}
+//
+//			@Override
+//			public boolean cacheOperationAllowed(String cacheName, SecurityPermission perm) {
+//				// TODO Auto-generated method stub
+//				return false;
+//			}
+//
+//			@Override
+//			public boolean systemOperationAllowed(SecurityPermission perm) {
+//				// TODO Auto-generated method stub
+//				return false;
+//			}};
+//		return null;
+//	}
+//	@Override
+//	public IgniteNodeValidationResult validateNode(ClusterNode node) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	
    /* @Override
@@ -182,11 +185,11 @@ public class WhiteListSecurityProcessor
 		
 	}
 
-	@Override
-	public void onKernalStart() throws IgniteCheckedException {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void onKernalStart() throws IgniteCheckedException {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 	@Override
 	public void onKernalStop(boolean cancel) {
@@ -194,17 +197,17 @@ public class WhiteListSecurityProcessor
 		
 	}
 
-	@Override
-	public Serializable collectDiscoveryData(UUID nodeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void onDiscoveryDataReceived(UUID joiningNodeId, UUID rmtNodeId, Serializable data) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public Serializable collectDiscoveryData(UUID nodeId) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public void onDiscoveryDataReceived(UUID joiningNodeId, UUID rmtNodeId, Serializable data) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 	@Override
 	public void printMemoryStats() {
@@ -265,6 +268,54 @@ public class WhiteListSecurityProcessor
 	public boolean enabled() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void onKernalStart(boolean active) throws IgniteCheckedException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void collectJoiningNodeData(DiscoveryDataBag dataBag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void collectGridNodeData(DiscoveryDataBag dataBag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onGridDataReceived(GridDiscoveryData data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onJoiningNodeDataReceived(JoiningNodeDiscoveryData data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IgniteNodeValidationResult validateNode(ClusterNode node) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IgniteNodeValidationResult validateNode(ClusterNode node, JoiningNodeDiscoveryData discoData) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SecurityContext authenticateNode(ClusterNode node, SecurityCredentials cred) throws IgniteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

@@ -46,6 +46,32 @@
 	</build>
 
 	<dependencies>
+	<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-micrometer-metrics</artifactId>
+  <version>3.5.3</version>
+</dependency>
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-registry-influx</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-hawkular-metrics</artifactId>
+  <version>3.5.3</version>
+</dependency>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
 <dependency>
     <groupId>org.javassist</groupId>
